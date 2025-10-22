@@ -1,0 +1,254 @@
+[
+  {
+    "session_id": "20251018_174059",
+    "start_time": "2025-10-18T17:40:59.481547",
+    "end_time": "2025-10-18T17:43:42.191609",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 0,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_081858",
+    "start_time": "2025-10-19T08:18:58.704117",
+    "end_time": "2025-10-19T08:23:25.984900",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 1,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_085432",
+    "start_time": "2025-10-19T08:54:32.394095",
+    "end_time": "2025-10-19T08:55:46.044274",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 0,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_103554",
+    "start_time": "2025-10-19T10:35:54.005783",
+    "end_time": "2025-10-19T10:37:19.260232",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 1,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_105229",
+    "start_time": "2025-10-19T10:52:29.254652",
+    "end_time": "2025-10-19T10:54:22.709438",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 1,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_111028",
+    "start_time": "2025-10-19T11:10:28.667658",
+    "end_time": "2025-10-19T11:11:56.860186",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 1,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_111200",
+    "start_time": "2025-10-19T11:12:00.581233",
+    "end_time": "2025-10-19T11:16:32.662428",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 4,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_113118",
+    "start_time": "2025-10-19T11:31:18.610083",
+    "end_time": "2025-10-19T11:31:54.497895",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 2,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_114651",
+    "start_time": "2025-10-19T11:46:51.403268",
+    "end_time": "2025-10-19T11:49:41.823445",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 3,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_115255",
+    "start_time": "2025-10-19T11:52:55.222325",
+    "end_time": "2025-10-19T11:56:54.400768",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 5,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251019_120347",
+    "start_time": "2025-10-19T12:03:47.366732",
+    "end_time": "2025-10-19T12:05:37.045135",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 1,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  },
+  {
+    "session_id": "20251021_060544",
+    "start_time": "2025-10-21T06:05:44.049548",
+    "end_time": "2025-10-21T06:07:31.455494",
+    "enemies_killed": 0,
+    "loot_collected": 0,
+    "deaths": 0,
+    "hp_heals": 0,
+    "energy_low_alerts": 0,
+    "flee_events": 0,
+    "combat_profile": "balanced",
+    "total_hp_lost": 0,
+    "total_energy_used": 0,
+    "errors": [],
+    "skills_used": {},
+    "time_in_state": {
+      "INIT": 0,
+      "FARMING": 0,
+      "FLEEING": 0
+    }
+  }
+]

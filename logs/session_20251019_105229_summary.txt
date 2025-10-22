@@ -1,0 +1,20 @@
+==================================================
+SESSION SUMMARY - 20251019_105229
+==================================================
+
+Runtime: 0:01:53
+Enemies Killed: 0
+Loot Collected: 0
+Deaths: 0
+Heals Used: 1
+Flee Events: 0
+Enemies Per Hour: 0.0
+Heals Per Hour: 31.73
+Total Hp Lost: 0
+Total Energy Used: 0
+Most Used Skill: None
+Combat Profile: balanced
+
+==================================================
+SKILLS USAGE
+==================================================

@@ -1,0 +1,6 @@
+# Configuración óptima detectada
+# Energía detectada: 21,334
+offset_x = 60
+offset_y = 0
+width = 60
+height = 20

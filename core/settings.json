@@ -1,0 +1,180 @@
+{
+    "tesseract": "C:/Program Files/Tesseract-OCR/tesseract.exe",
+    "priority": [
+        "enemy",
+        "loot",
+        "enemyIdle"
+    ],
+    "search": {
+        "enemy": [
+            135,
+            27,
+            11
+        ],
+        "enemyIdle": [
+            162,
+            151,
+            15
+        ],
+        "loot": [
+            19,
+            193,
+            217
+        ]
+    },
+    "healOnHp": 30,
+    "defendOnHp": 45,
+    "runOnHp": 10,
+    "lowEnergy": 1000,
+    "occasionalSkill": 150,
+    "healThresholds": [
+        80,
+        50,
+        30
+    ],
+    "aggressiveHealing": true,
+    "skillset": "custom",
+    "presets": {
+        "storm": [
+            "blaster",
+            "collector",
+            "rocket",
+            "repair",
+            "afterburner",
+            "aimcomp",
+            "perforator",
+            "thermo"
+        ],
+        "tank": [
+            "blaster",
+            "collector",
+            "repair",
+            "afterburner",
+            "shield",
+            "taunt",
+            "scramble",
+            "aggrobomb"
+        ],
+        "engineer": [
+            "blaster",
+            "collector",
+            "repair",
+            "afterburner",
+            "repairtarget",
+            "protector",
+            "repairfield",
+            "resurrect"
+        ],
+        "shock": [
+            "blaster",
+            "collector",
+            "repair",
+            "afterburner",
+            "speedactuator",
+            "stun",
+            "beacon",
+            "stundome"
+        ],
+        "sniper": [
+            "blaster",
+            "collector",
+            "repair",
+            "afterburner",
+            "sniper",
+            "attackdroid",
+            "orbitalstrike",
+            "dmgbuff"
+        ],
+        "custom": [
+            "blaster",
+            "collector",
+            "rocket",
+            "repair",
+            "shield",
+            "speedactuator",
+            "sniper",
+            "orbitalstrike"
+        ],
+        "chromian": [
+            "blaster",
+            "collector",
+            "repair",
+            "afterburner",
+            "protector",
+            "speedactuator",
+            "orbitalstrike",
+            "magnettrap"
+        ],
+        "scorpion": [
+            "blaster",
+            "collector",
+            "rocket",
+            "repair",
+            "afterburner",
+            "aimcomp",
+            "scramble",
+            "aggrobomb"
+        ]
+    },
+    "stats_config": {
+        "crionita_region": {
+            "comment": "Posición de lectura de crionita [x, y, width, height]",
+            "1920x1080": [
+                917,
+                950,
+                81,
+                17
+            ],
+            "1366x768": [
+                1150,
+                35,
+                150,
+                25
+            ],
+            "1280x720": [
+                1050,
+                30,
+                140,
+                25
+            ],
+            "default": [
+                1700,
+                50,
+                150,
+                30
+            ]
+        },
+        "energy_region": {
+            "comment": "Posición de lectura de energía [x, y, width, height]",
+            "1920x1080": [
+                826,
+                949,
+                46,
+                19
+            ],
+            "1366x768": [
+                80,
+                80,
+                100,
+                20
+            ],
+            "1280x720": [
+                75,
+                75,
+                95,
+                20
+            ],
+            "default": [
+                100,
+                100,
+                120,
+                25
+            ]
+        },
+        "enable_kill_tracking": true,
+        "enable_collection_tracking": true,
+        "enable_crionita_tracking": true,
+        "enable_energy_tracking": true,
+        "enable_lowlife_tracking": true
+    }
+}
