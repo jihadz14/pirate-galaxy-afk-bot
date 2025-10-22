@@ -1,13 +1,14 @@
 @echo off
+setlocal enabledelayedexpansion
 chcp 65001 >nul
-title Verificación de Configuración - Pirate Galaxy Bot
+title Verificación - Pirate Galaxy Bot
 color 0E
 
 echo.
-echo ╔═══════════════════════════════════════╗
-echo ║   VERIFICACIÓN DE CONFIGURACIÓN      ║
-echo ║   Pirate Galaxy Bot                  ║
-echo ╚═══════════════════════════════════════╝
+echo ========================================
+echo   VERIFICACION DE CONFIGURACION
+echo   Pirate Galaxy Bot
+echo ========================================
 echo.
 
 REM Ir a la raíz del proyecto
@@ -15,14 +16,15 @@ cd /d "%~dp0.."
 
 echo [1/6] Verificando Python...
 python --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ✗ Python NO está instalado
+if errorlevel 1 (
+    echo X Python NO esta instalado
     echo.
     echo Instala Python desde: https://www.python.org/downloads/
+    echo.
     goto :error
 ) else (
-    for /f "tokens=*" %%i in ('python --version') do set PYTHON_VERSION=%%i
-    echo ✓ !PYTHON_VERSION! detectado
+    python --version
+    echo OK - Python detectado
 )
 
 echo.
@@ -30,96 +32,91 @@ echo [2/6] Verificando estructura de archivos...
 set ERROR_COUNT=0
 
 if not exist "main.py" (
-    echo ✗ main.py NO encontrado
+    echo X main.py NO encontrado
     set /a ERROR_COUNT+=1
 ) else (
-    echo ✓ main.py
+    echo OK - main.py
 )
 
 if not exist "main_enhanced.py" (
-    echo ✗ main_enhanced.py NO encontrado
+    echo X main_enhanced.py NO encontrado
     set /a ERROR_COUNT+=1
 ) else (
-    echo ✓ main_enhanced.py
+    echo OK - main_enhanced.py
 )
 
 if not exist "config\settings.json" (
-    echo ✗ config\settings.json NO encontrado
+    echo X config\settings.json NO encontrado
     set /a ERROR_COUNT+=1
 ) else (
-    echo ✓ config\settings.json
+    echo OK - config\settings.json
 )
 
 if not exist "src\bot\bot_core.py" (
-    echo ✗ src\bot\bot_core.py NO encontrado
+    echo X src\bot\bot_core.py NO encontrado
     set /a ERROR_COUNT+=1
 ) else (
-    echo ✓ src\bot\bot_core.py
+    echo OK - src\bot\bot_core.py
 )
 
-if not exist "data\images" (
-    echo ✗ data\images\ NO encontrado
-    set /a ERROR_COUNT+=1
-) else (
-    echo ✓ data\images\
-)
-
-if %ERROR_COUNT% gtr 0 (
+if !ERROR_COUNT! gtr 0 (
     echo.
-    echo ✗ %ERROR_COUNT% archivo(s) faltante(s)
+    echo X !ERROR_COUNT! archivo(s) faltante(s)
     goto :error
 )
 
 echo.
-echo [3/6] Verificando dependencias básicas...
+echo [3/6] Verificando dependencias basicas...
+set MISSING_DEPS=0
+
 python -c "import pyautogui" >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ✗ pyautogui NO instalado
+if errorlevel 1 (
+    echo X pyautogui NO instalado
     set MISSING_DEPS=1
 ) else (
-    echo ✓ pyautogui
+    echo OK - pyautogui
 )
 
 python -c "import keyboard" >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ✗ keyboard NO instalado
+if errorlevel 1 (
+    echo X keyboard NO instalado
     set MISSING_DEPS=1
 ) else (
-    echo ✓ keyboard
+    echo OK - keyboard
 )
 
 python -c "import colorama" >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ✗ colorama NO instalado
+if errorlevel 1 (
+    echo X colorama NO instalado
     set MISSING_DEPS=1
 ) else (
-    echo ✓ colorama
+    echo OK - colorama
 )
 
 python -c "import cv2" >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ✗ opencv-python NO instalado
+if errorlevel 1 (
+    echo X opencv-python NO instalado
     set MISSING_DEPS=1
 ) else (
-    echo ✓ opencv-python
+    echo OK - opencv-python
 )
 
 python -c "import pytesseract" >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ✗ pytesseract NO instalado
+if errorlevel 1 (
+    echo X pytesseract NO instalado
     set MISSING_DEPS=1
 ) else (
-    echo ✓ pytesseract
+    echo OK - pytesseract
 )
 
-if defined MISSING_DEPS (
+if !MISSING_DEPS! equ 1 (
     echo.
-    echo ⚠ Algunas dependencias faltan
+    echo ! Algunas dependencias faltan
     echo.
-    echo Ejecuta: pip install pyautogui keyboard colorama opencv-python pytesseract pywin32
+    echo Para instalar:
+    echo pip install pyautogui keyboard colorama opencv-python pytesseract pywin32
     echo.
-    echo O ejecuta: scripts\install_dependencies.bat
-    set /p INSTALL="¿Instalar ahora? (s/n): "
+    set /p INSTALL="Instalar ahora? (s/n): "
     if /i "!INSTALL!"=="s" (
         echo.
         echo Instalando dependencias...
@@ -129,73 +126,69 @@ if defined MISSING_DEPS (
 )
 
 echo.
-echo [4/6] Verificando dependencias Enhanced (PyQt5)...
+echo [4/6] Verificando PyQt5 (para version Enhanced)...
 python -c "from PyQt5.QtWidgets import QApplication" >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ✗ PyQt5 NO instalado (necesario para main_enhanced.py)
-    echo.
-    echo   Para usar la versión Enhanced, instala:
-    echo   pip install PyQt5 PyQtChart
+if errorlevel 1 (
+    echo ! PyQt5 NO instalado (solo necesario para main_enhanced.py)
+    echo   Para instalar: pip install PyQt5 PyQtChart
 ) else (
-    echo ✓ PyQt5 instalado
+    echo OK - PyQt5 instalado
 )
 
 echo.
 echo [5/6] Probando sintaxis de archivos Python...
 python -m py_compile main.py >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ✗ main.py tiene errores de sintaxis
+if errorlevel 1 (
+    echo X main.py tiene errores de sintaxis
     goto :error
 ) else (
-    echo ✓ main.py sintaxis correcta
+    echo OK - main.py sintaxis correcta
 )
 
 python -m py_compile main_enhanced.py >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ✗ main_enhanced.py tiene errores de sintaxis
+if errorlevel 1 (
+    echo X main_enhanced.py tiene errores de sintaxis
     goto :error
 ) else (
-    echo ✓ main_enhanced.py sintaxis correcta
+    echo OK - main_enhanced.py sintaxis correcta
 )
 
 echo.
 echo [6/6] Verificando Tesseract OCR...
 where tesseract >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ⚠ Tesseract NO encontrado en PATH
-    echo.
-    echo   Verifica que la ruta en config\settings.json sea correcta
+if errorlevel 1 (
+    echo ! Tesseract NO encontrado en PATH
+    echo   Verifica la ruta en config\settings.json
     echo   O descarga desde: https://github.com/UB-Mannheim/tesseract/wiki
 ) else (
-    for /f "tokens=*" %%i in ('tesseract --version 2^>^&1 ^| findstr /r "^tesseract"') do (
-        echo ✓ %%i
-    )
+    tesseract --version 2>&1 | findstr /r "^tesseract"
+    echo OK - Tesseract detectado
 )
 
 echo.
-echo ════════════════════════════════════════
+echo ========================================
 echo.
-echo ✅ VERIFICACIÓN COMPLETADA
+echo   VERIFICACION COMPLETADA
 echo.
-echo Tu bot está listo para ejecutar:
+echo Tu bot esta listo para ejecutar:
 echo.
-echo   Versión Original:  scripts\run_original.bat
-echo   Versión Enhanced:  scripts\run_enhanced.bat
+echo   Version Original:  scripts\run_original.bat
+echo   Version Enhanced:  scripts\run_enhanced.bat
 echo.
-echo ════════════════════════════════════════
+echo ========================================
 echo.
 pause
 exit /b 0
 
 :error
 echo.
-echo ════════════════════════════════════════
+echo ========================================
 echo.
-echo ❌ VERIFICACIÓN FALLÓ
+echo   VERIFICACION FALLO
 echo.
-echo Por favor, revisa los errores arriba y corrígelos.
+echo Por favor, revisa los errores arriba.
 echo.
-echo ════════════════════════════════════════
+echo ========================================
 echo.
 pause
 exit /b 1
