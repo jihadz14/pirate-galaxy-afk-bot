@@ -25,13 +25,15 @@ class EnergyDetector:
         }
         
         # Rangos de color para orbes azules brillantes (HSV)
-        self.orb_color_lower = np.array([90, 150, 150])   # Azul brillante
-        self.orb_color_upper = np.array([130, 255, 255])
-        
+        # Optimizado: rangos más amplios para mejor detección
+        self.orb_color_lower = np.array([85, 100, 100])   # Azul brillante (más amplio)
+        self.orb_color_upper = np.array([135, 255, 255])
+
         # Parámetros de detección
-        self.min_orb_area = 50      # Área mínima del orbe
-        self.max_orb_area = 3000    # Área máxima del orbe
-        self.min_circularity = 0.4  # Qué tan circular debe ser
+        # Optimizado: límites más permisivos para detectar más orbes
+        self.min_orb_area = 30      # Área mínima del orbe (reducida para orbes pequeños)
+        self.max_orb_area = 5000    # Área máxima del orbe (aumentada para orbes grandes)
+        self.min_circularity = 0.3  # Qué tan circular debe ser (más permisivo)
         
     def detect_energy_orbs(self, debug=False):
         """

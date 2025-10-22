@@ -493,10 +493,10 @@ try:
                 bot.stats_check_time = time()
 
     update_timer.timeout.connect(update_bot_loop)
-    update_timer.start(100)
+    update_timer.start(250)  # Optimizado: 100ms -> 250ms (4 FPS en lugar de 10 FPS)
 
     stats_timer.timeout.connect(update_stats_loop)
-    stats_timer.start(500)
+    stats_timer.start(1000)  # Optimizado: 500ms -> 1000ms (stats cada 1 segundo)
 
     print("✓ Timers iniciados\n")
 
@@ -631,36 +631,54 @@ except Exception as e:
 
 finally:
     print("\n[INFO] Limpiando recursos...")
-    
+
+    # Detener timers PRIMERO
     try:
-        if 'hotkeys_active' in locals() and hotkeys_active:
-            keyboard.unhook_all()
-    except:
-        pass
-    
-    try:
-        if 'update_timer' in locals():
+        if 'update_timer' in locals() and update_timer:
             update_timer.stop()
-        if 'stats_timer' in locals():
+            update_timer.deleteLater()
+        if 'stats_timer' in locals() and stats_timer:
             stats_timer.stop()
-    except:
-        pass
-    
+            stats_timer.deleteLater()
+    except Exception as e:
+        print(f"  ⚠ Error deteniendo timers: {e}")
+
+    # Detener bot
     try:
-        if 'bot' in locals():
+        if 'bot' in locals() and bot:
+            bot.stopped = True
             bot.stop()
-    except:
-        pass
-    
+            # Esperar a que el thread termine
+            import time
+            time.sleep(0.5)
+    except Exception as e:
+        print(f"  ⚠ Error deteniendo bot: {e}")
+
+    # Unhook hotkeys
+    try:
+        if 'hotkeys_active' in locals():
+            keyboard.unhook_all()
+    except Exception as e:
+        print(f"  ⚠ Error con hotkeys: {e}")
+
+    # Cerrar ventanas OpenCV
     try:
         cv.destroyAllWindows()
-    except:
-        pass
-    
+    except Exception as e:
+        print(f"  ⚠ Error cerrando OpenCV: {e}")
+
+    # Guardar stats
     try:
         if 'logger' in locals() and logger:
             logger.save_stats()
-    except:
-        pass
-    
+    except Exception as e:
+        print(f"  ⚠ Error guardando logs: {e}")
+
+    # Cerrar aplicación Qt
+    try:
+        if 'app' in locals():
+            app.quit()
+    except Exception as e:
+        print(f"  ⚠ Error cerrando Qt: {e}")
+
     print("[OK] Bot cerrado correctamente")
