@@ -7,8 +7,9 @@ Sin ejecutar el bot completo
 import sys
 import os
 
-# Agregar src al path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+# Agregar el directorio raíz del proyecto al path
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, project_root)
 
 print("╔═══════════════════════════════════════╗")
 print("║   PRUEBA RÁPIDA DE IMPORTS           ║")
